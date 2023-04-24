@@ -5,29 +5,29 @@
       common = {
         home.stateVersion = "22.11";
         imports = [
-          ./tmux.nix
+          # ./tmux.nix
           ./neovim.nix
-          ./starship.nix
-          ./terminal.nix
-          ./direnv.nix
-          ./zellij.nix
+          # ./starship.nix
+          # ./terminal.nix
+          # ./direnv.nix
+          # ./zellij.nix
           # ./nushell.nix (intergrates extremely poorly with the system)
-          ./powershell.nix
+          # ./powershell.nix
         ];
       };
       common-linux = {
         imports = [
           self.homeModules.common
           ./bash.nix
-          ./vscode-server.nix
+          # ./vscode-server.nix
         ];
       };
       common-darwin = {
         imports = [
           self.homeModules.common
           ./zsh.nix
-          ./kitty.nix
-          ./emacs.nix
+          # ./kitty.nix
+          # ./emacs.nix
         ];
       };
     };

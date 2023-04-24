@@ -20,11 +20,7 @@ vim.cmd([[
 set nobackup
 set number
 set termguicolors " 24-bit colors
-" let g:tokyonight_style = "day"
-" let g:tokyonight_italic_functions = 1
-" colorscheme tokyonight
-" colorscheme sonokai
-colorscheme PaperColor
+colorscheme gruvbox
 ]])
 
 -- I don't care about tabs.
