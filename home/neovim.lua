@@ -16,6 +16,8 @@ end
 -- Config
 -- ------
 
+nmap('<c-s>', ':w<cr>')
+
 vim.cmd([[
 set nobackup
 set number

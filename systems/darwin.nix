@@ -12,7 +12,7 @@
     gh
     nixpkgs-fmt
     emanote
-    flake.inputs.hci.packages.${pkgs.system}.hercules-ci-cli
+    # flake.inputs.hci.packages.${pkgs.system}.hercules-ci-cli
     flake.inputs.nixpkgs-match.packages.${pkgs.system}.default
 
     # We must install Agda globally so that Doom-Emacs' agda config can
@@ -20,7 +20,7 @@
     # 
     # Emacs configuration system assumes global state, and is thus shit. We just work with it.
     # https://github.com/hlissner/doom-emacs/blob/f458f9776049fd7e9523318582feed682e7d575c/modules/lang/agda/config.el#L3-L8
-    (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
+    # (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
     # rosettaPkgs.idris2
     #rosettaPkgs.coq
     # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./neovim/lspconfig.nix
     ./neovim/telescope.nix
     # ./neovim/coc.nix
     # ./neovim/haskell.nix
@@ -56,12 +57,6 @@
             options = {
               theme = 'gruvbox',
               icons_enabled = true
-            },
-            sections = {
-              lualine_a = {
-                'filename',
-                path = 2,
-              }
             }
           }
         '';

@@ -2,40 +2,57 @@
   description = "Srid's NixOS configuration";
 
   inputs = {
-    # Principle inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    #flake utitlity funcitons
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils-plus = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nix-darwin.url = "github:lnl7/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    # inputs for mac systems
+    nix-darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # manager user environtment
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
+
+    # nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixos-flake.url = "github:srid/nixos-flake";
     # nixos-flake.url = "path:/Users/srid/code/nixos-flake";
 
     # CI server
-    sops-nix.url = "github:Mic92/sops-nix";
-    jenkins-nix-ci.url = "github:juspay/jenkins-nix-ci";
-    hci.url = "github:hercules-ci/hercules-ci-agent";
-    nix-serve-ng.url = "github:aristanetworks/nix-serve-ng";
+    # sops-nix.url = "github:Mic92/sops-nix";
+    # jenkins-nix-ci.url = "github:juspay/jenkins-nix-ci";
+    # hci.url = "github:hercules-ci/hercules-ci-agent";
+    # nix-serve-ng.url = "github:aristanetworks/nix-serve-ng";
 
     # Software inputs
-    nixos-shell.url = "github:Mic92/nixos-shell";
-    nixos-vscode-server.url = "github:msteen/nixos-vscode-server";
-    nixos-vscode-server.flake = false;
-    emanote.url = "github:srid/emanote";
+    # nixos-shell.url = "github:Mic92/nixos-shell";
+    # nixos-vscode-server.url = "github:msteen/nixos-vscode-server";
+    # nixos-vscode-server.flake = false;
+    # emanote.url = "github:srid/emanote";
     nixpkgs-match.url = "github:srid/nixpkgs-match";
     nuenv.url = "github:DeterminateSystems/nuenv";
 
     # Emacs
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     # Vim & its plugins (not in nixpkgs)
-    zk-nvim.url = "github:mickael-menu/zk-nvim";
-    zk-nvim.flake = false;
-    coc-rust-analyzer.url = "github:fannheyward/coc-rust-analyzer";
-    coc-rust-analyzer.flake = false;
+    # zk-nvim.url = "github:mickael-menu/zk-nvim";
+    # zk-nvim.flake = false;
+    # coc-rust-analyzer.url = "github:fannheyward/coc-rust-analyzer";
+    # coc-rust-analyzer.flake = false;
   };
 
   outputs = inputs@{ self, ... }:
@@ -70,7 +87,7 @@
           nmcc-laptop = self.nixos-flake.lib.mkARMMacosSystem {
             imports = [
               self.darwinModules.default # Defined in nix-darwin/default.nix
-              ./nixos/hercules.nix
+              # ./nixos/hercules.nix
               ./systems/darwin.nix
             ];
           };
