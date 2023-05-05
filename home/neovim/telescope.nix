@@ -6,17 +6,36 @@
         plugin = telescope-nvim;
         type = "lua";
         config = ''
-          nmap("<leader>ff", ":Telescope find_files<cr>")
-          nmap("<leader>fg", ":Telescope live_grep<cr>")
-          nmap("<leader>fb", ":Telescope buffers<cr>")
-          nmap("<leader>fh", ":Telescope help_tags<cr>")
+          -- nmap("<leader>ff", ":Telescope find_files<cr>")
+          --nmap("<leader>fg", ":Telescope live_grep<cr>")
+          -- nmap("<leader>fb", ":Telescope buffers<cr>")
+          -- nmap("<leader>fh", ":Telescope help_tags<cr>")
+           wk_nmap({
+             ["<leader>"] = {
+               f = {
+                 name = "+find";
+                 f = { "<cmd>Telescope find_files<cr>", "Find File" };
+                 g = { "<cmd>Telescope live_grep<cr>", "Grep File" };
+                 b = { "<cmd>Telescope buffers<cr>", "Find Buffer" };
+                 h = { "<cmd>Telescope help_tags<cr>", "Find Help" };
+               };
+             };
+           })
         '';
       }
       {
         plugin = telescope-zoxide;
         type = "lua";
         config = ''
-          nmap("<leader>fz", ":Telescope zoxide list<cr>")
+          --nmap("<leader>fz", ":Telescope zoxide list<cr>")
+          wk_nmap({
+            ["<leader>"] = {
+              f = {
+                name = "+find";
+                z = { "<cmd>Telescope zoxide list<cr>", "Find Zoxide" };
+              };
+            };
+          })
         '';
       }
       {
