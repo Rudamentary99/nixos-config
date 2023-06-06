@@ -11,7 +11,7 @@
     ./redshift.nix
     ./gnome-keyring.nix
     ./guiapps.nix
-    ./polybar.nix
+    ./polyar.nix
     ./hotplug.nix
 
     # WMish things
