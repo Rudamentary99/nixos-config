@@ -37,6 +37,13 @@
 
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       # Preferred theme
+      # {
+      #   plugin = gruvbox;
+      #   type = "lua";
+      #   config = '';
+      #     require("gruvbox").setup()
+      #   '';
+      # }
       gruvbox
       # File browser
       {
@@ -65,63 +72,76 @@
       # Buffer tabs
       {
         plugin = barbar-nvim;
-        type="lua";
+        type = "lua";
         config = ''
-          require('barbar').setup()
+            require('barbar').setup()
 
-        -- Move to previous/next
-        nmap('<A-,>', '<Cmd>BufferPrevious<CR>')
-        nmap('<A-.>', '<Cmd>BufferNext<CR>')
-        -- Re-order to previous/next
-        nmap('<A-<>', '<Cmd>BufferMovePrevious<CR>')
-        nmap('<A->>', '<Cmd>BufferMoveNext<CR>')
-        -- Goto buffer in position...
-        nmap( '<A-1>', '<Cmd>BufferGoto 1<CR>')
-        nmap( '<A-2>', '<Cmd>BufferGoto 2<CR>')
-        nmap( '<A-3>', '<Cmd>BufferGoto 3<CR>')
-        nmap( '<A-4>', '<Cmd>BufferGoto 4<CR>')
-        nmap( '<A-5>', '<Cmd>BufferGoto 5<CR>')
-        nmap( '<A-6>', '<Cmd>BufferGoto 6<CR>')
-        nmap( '<A-7>', '<Cmd>BufferGoto 7<CR>')
-        nmap( '<A-8>', '<Cmd>BufferGoto 8<CR>')
-        nmap( '<A-9>', '<Cmd>BufferGoto 9<CR>')
-        nmap( '<A-0>', '<Cmd>BufferLast<CR>')
-        -- Pin/unpin buffer
-        nmap( '<A-p>', '<Cmd>BufferPin<CR>')
-        -- Close buffer
-        nmap( '<A-c>', '<Cmd>BufferClose<CR>')
-        -- Wipeout buffer
-        --                 :BufferWipeout
-        -- Close commands
-        --                 :BufferCloseAllButCurrent
-        --                 :BufferCloseAllButPinned
-        --                 :BufferCloseAllButCurrentOrPinned
-        --                 :BufferCloseBuffersLeft
-        --                 :BufferCloseBuffersRight
-        -- Magic buffer-picking mode
-        nmap( '<C-p>', '<Cmd>BufferPick<CR>')
-        -- Sort automatically by...
-        nmap( '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>')
-        nmap( '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>')
-        nmap( '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>')
-        nmap( '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>')
+          -- Move to previous/next
+          nmap('<A-,>', '<Cmd>BufferPrevious<CR>')
+          nmap('<A-.>', '<Cmd>BufferNext<CR>')
+          -- Re-order to previous/next
+          nmap('<A-<>', '<Cmd>BufferMovePrevious<CR>')
+          nmap('<A->>', '<Cmd>BufferMoveNext<CR>')
+          -- Goto buffer in position...
+          nmap( '<A-1>', '<Cmd>BufferGoto 1<CR>')
+          nmap( '<A-2>', '<Cmd>BufferGoto 2<CR>')
+          nmap( '<A-3>', '<Cmd>BufferGoto 3<CR>')
+          nmap( '<A-4>', '<Cmd>BufferGoto 4<CR>')
+          nmap( '<A-5>', '<Cmd>BufferGoto 5<CR>')
+          nmap( '<A-6>', '<Cmd>BufferGoto 6<CR>')
+          nmap( '<A-7>', '<Cmd>BufferGoto 7<CR>')
+          nmap( '<A-8>', '<Cmd>BufferGoto 8<CR>')
+          nmap( '<A-9>', '<Cmd>BufferGoto 9<CR>')
+          nmap( '<A-0>', '<Cmd>BufferLast<CR>')
+          -- Pin/unpin buffer
+          nmap( '<A-p>', '<Cmd>BufferPin<CR>')
+          -- Close buffer
+          nmap( '<A-c>', '<Cmd>BufferClose<CR>')
+          -- Wipeout buffer
+          --                 :BufferWipeout
+          -- Close commands
+          --                 :BufferCloseAllButCurrent
+          --                 :BufferCloseAllButPinned
+          --                 :BufferCloseAllButCurrentOrPinned
+          --                 :BufferCloseBuffersLeft
+          --                 :BufferCloseBuffersRight
+          -- Magic buffer-picking mode
+          nmap( '<C-p>', '<Cmd>BufferPick<CR>')
+          -- Sort automatically by...
+          nmap( '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>')
+          nmap( '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>')
+          nmap( '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>')
+          nmap( '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>')
 
-          '';
-        }
+        '';
+      }
 
-     # {
-     #   plugin = bufferline-nvim;
-     #   type = "lua";
-     #   config = ''
-     #     require("bufferline").setup{ }
-     #     nmap("<leader>b", ":BufferLineCycleNext<cr>")
-     #     nmap("<leader>B", ":BufferLineCyclePrev<cr>")
-     #   '';
-     # }
+      # {
+      #   plugin = bufferline-nvim;
+      #   type = "lua";intelephense
+      #   config = ''
+      #     require("bufferline").setup{ }
+      #     nmap("<leader>b", ":BufferLineCycleNext<cr>")
+      #     nmap("<leader>B", ":BufferLineCyclePrev<cr>")
+      #   '';intelephense
+      # }
 
       # Language support
       vim-nix
-
+      {
+        plugin = comment-nvim;
+        type = "lua";
+        config = ''
+          require("Comment").setup()
+        '';
+      }
+      {
+        plugin = copilot-lua;
+        type = "lua";
+        config = ''
+          require("copilot").setup()
+        '';
+      }
       # # nushell
       # null-ls-nvim
       # {

@@ -1,7 +1,7 @@
--- -------
 -- Library
 -- -------
 local wk = require('which-key');
+
 function map(mode, shortcut, command)
     vim.api.nvim_set_keymap(mode, shortcut, command, {
         noremap = true,
@@ -29,17 +29,18 @@ wk_imap = function(mappings)
         mode = 'i'
     }, mappings)
 end
-
 -- ------
 -- Config
 -- ------
 
 -- nmap('<c-s>', ':w<cr>')
+
 wk_nmap({
     ["<leader>"] = {
         s = {":w<cr>", "save file"}
     }
 })
+
 vim.cmd([[
 set nobackup
 set number

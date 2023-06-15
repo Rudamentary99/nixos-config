@@ -14,6 +14,7 @@
           lspconfig.rnix.setup{}
           lspconfig.jsonls.setup{}
           lspconfig.phpactor.setup{}
+          lspconfig.intelephense.setup{}
 
           -- Global mappings.
           -- See `:help vim.diagnostic.*` for documentation on any of the below functions
