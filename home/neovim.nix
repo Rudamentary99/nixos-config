@@ -139,7 +139,11 @@
         plugin = copilot-lua;
         type = "lua";
         config = ''
-          require("copilot").setup()
+          require("copilot").setup({
+           suggestion = {
+            auto_trigger = true
+           }
+          })
         '';
       }
       # # nushell

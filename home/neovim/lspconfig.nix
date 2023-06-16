@@ -6,7 +6,7 @@
         plugin = nvim-lspconfig;
         type = "lua";
         config = ''
-                      -- Setup language servers.
+          -- Setup language servers.
           local lspconfig = require('lspconfig')
           lspconfig.pyright.setup {}
           lspconfig.tsserver.setup {}
@@ -63,10 +63,13 @@
         '';
       }
       {
+        #TODO: implement lespconfig_handlers
         plugin = mason-lspconfig-nvim;
         type = "lua";
         config = ''
-          require('mason-lspconfig').setup()
+          require('mason-lspconfig').setup({
+            ensure_installed = {"jsonls", "pyright", "tsserver", "yamlls"},
+          })
         '';
       }
     ];
