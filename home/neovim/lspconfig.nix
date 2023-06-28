@@ -7,14 +7,14 @@
         type = "lua";
         config = ''
           -- Setup language servers.
-          local lspconfig = require('lspconfig')
-          lspconfig.pyright.setup {}
-          lspconfig.tsserver.setup {}
-          lspconfig.yamlls.setup {}
-          lspconfig.rnix.setup{}
-          lspconfig.jsonls.setup{}
-          lspconfig.phpactor.setup{}
-          lspconfig.intelephense.setup{}
+         -- local lspconfig = require('lspconfig')
+         -- lspconfig.pyright.setup {}
+          --lspconfig.tsserver.setup {}
+          --lspconfig.yamlls.setup {}
+--          lspconfig.rnix.setup{}
+--          lspconfig.jsonls.setup{}
+ --         lspconfig.phpactor.setup{}
+  --        lspconfig.intelephense.setup{}
 
           -- Global mappings.
           -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -67,9 +67,16 @@
         plugin = mason-lspconfig-nvim;
         type = "lua";
         config = ''
-          require('mason-lspconfig').setup({
+          mason = require('mason-lspconfig')
+          mason.setup({
             ensure_installed = {"jsonls", "pyright", "tsserver", "yamlls"},
           })
+          mason.setup_handlers({
+            function (server_name)
+              require('lspconfig')[server_name].setup{}
+            end
+          })
+
         '';
       }
     ];
