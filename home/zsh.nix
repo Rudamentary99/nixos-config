@@ -16,6 +16,13 @@
         "alias-finder"
         "aliases"
         "common-aliases"
+        "history"
+        "catimg"
+        "colorize"
+        "copyfile"
+        "compypath"
+        "dirhistory"
+        "fancy-ctrl-z"
 
       ];
     };
@@ -31,6 +38,15 @@
               rev = "v0.4.0";
               sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
             };
+        }
+        {
+          name= "alias-maker";
+          src= pkgs.fetchFromGitHub
+          {
+            owner="MefitHp"
+            repo= "alias-maker"
+            
+          }
         }
       ];
   };

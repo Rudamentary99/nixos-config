@@ -1,0 +1,20 @@
+alias python=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3
+
+alias up1="ddev robo local:update ed.local"
+alias cr1="ddev drush @ed.local updb -y && ddev drush @ed.local cr"
+alias ci1="ddev drush @ed.local cim -y"
+alias cx1="ddev drush @ed.local cex -y"
+alias dis1="ddev drush @ed.local pm-uninstall -y"
+alias en1="ddev drush @ed.local pm-enable -y"
+alias up2="ddev robo local:update basic.local"
+alias cr2="ddev drush @basic.local updb -y && ddev drush @basic.local cr"
+alias ci2="ddev drush @basic.local cim -y"
+alias cx2="ddev drush @basic.local cex -y"
+alias dis2="ddev drush @basic.local pm-uninstall -y"
+alias en2="ddev drush @ed.local pm-enable -y"
+alias ed='cd /Users/alahadda/Sites/ed-gov'
+alias th='cd /Users/alahadda/Sites/ed-gov/web/themes/custom/edgov'
+alias bth="ddev robo build:theme"
+alias sq="ddev sequelpro"
+alias st="ddev start"
+alias des="ddev describe"
