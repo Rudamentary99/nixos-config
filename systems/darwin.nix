@@ -2,45 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    asciinema
     wget
-    ripgrep
-    sd
-    pandoc
     nodejs # Required for VSCode's webhint extension
-    nil
-    gh
-    nixpkgs-fmt
-    emanote
     # flake.inputs.hci.packages.${pkgs.system}.hercules-ci-cli
     flake.inputs.nixpkgs-match.packages.${pkgs.system}.default
-
-    # We must install Agda globally so that Doom-Emacs' agda config can
-    # recognize it. It doesn't matter that our projects use Nix/direnv.
-    # 
-    # Emacs configuration system assumes global state, and is thus shit. We just work with it.
-    # https://github.com/hlissner/doom-emacs/blob/f458f9776049fd7e9523318582feed682e7d575c/modules/lang/agda/config.el#L3-L8
-    # (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
-    # rosettaPkgs.idris2
-    #rosettaPkgs.coq
-    # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })
-
-    # TODO: These should be moved to a separate file?
-
-    # Kill the process with the port open
-    # Used only to kill stale ghc.
-    # FIXME: This doesn't work when lsof returns *multiple* processes.
-    (pkgs.writeShellApplication {
-      name = "fuckport";
-      runtimeInputs = [ jc jq ];
-      text = ''
-        lsof -i :"$1"
-        THEPID=$(lsof -i :"$1" | jc --lsof 2> /dev/null | jq '.[].pid')
-        echo "KILL $THEPID ?"
-        read -r
-        kill "$THEPID"
-      '';
-    })
 
   ];
 
@@ -51,15 +16,6 @@
       extra-platforms = aarch64-darwin x86_64-darwin
       experimental-features = nix-command flakes repl-flake
     '';
-    # https://nixos.wiki/wiki/Distributed_build
-    /* distributedBuilds = true;
-      buildMachines = [
-      {
-        hostName = (import ./hetzner/ax41.info.nix).publicIP;
-        system = "x86_64-linux";
-        maxJobs = 10;
-      }
-    ]; */
   };
 
   security.pam.enableSudoTouchIdAuth = true;

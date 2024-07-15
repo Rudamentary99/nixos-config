@@ -39,15 +39,15 @@
               sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
             };
         }
-        {
-          name= "alias-maker";
-          src= pkgs.fetchFromGitHub
-          {
-            owner="MefitHp"
-            repo= "alias-maker"
+        # {
+        #   name= "alias-maker";
+        #   src= pkgs.fetchFromGitHub
+        #   {
+        #     owner="MefitHp";
+        #     repo= "alias-maker";
             
-          }
-        }
+        #   }
+        # }
       ];
   };
   # This must be envExtra (rather than initExtra), because doom-emacs requires it
