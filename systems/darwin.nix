@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     wget
     nodejs # Required for VSCode's webhint extension
+    skhd
+    yabai
     # flake.inputs.hci.packages.${pkgs.system}.hercules-ci-cli
     flake.inputs.nixpkgs-match.packages.${pkgs.system}.default
 
